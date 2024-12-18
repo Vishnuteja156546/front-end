@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | E-commerce Chatbot</title>
+  <link rel="stylesheet" href=>
+  <style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header (Navigation Bar) */
+header {
+    background-color: #333;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Marquee */
+.marquee {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Main Content */
+main {
+    margin: 100px 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Product List */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.product-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.product-card button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+
+.product-card button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    margin-top: auto;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <a href="login.html" class="login-btn">Login</a>
+        <a href="profile.html" class="profile-btn">Profile</a>
+      </div>
+    </nav>
+    <marquee class="marquee">
+      🎉 Exclusive New Year Offer: Flat 50% OFF on All Products! Shop Now! 🎉
+    </marquee>
+  </header>
+
+  <main>
+    <h1>Our Products</h1>
+    <div class="product-list">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <img src="laptop1.jpg" alt="Laptop 1">
+        <h2>Laptop 1</h2>
+        <p>$800.00</p>
+        <p>High-performance laptop for work and gaming.</p>
+        <button><i class="cart-icon">🛒</i> Add to Cart</button>
+      </div>
+      <!-- Product 2 -->
+      <div class="product-card">
+        <img src="laptop2.jpg" alt="Laptop 2">
+        <h2>Laptop 2</h2>
+        <p>$1200.00</p>
+        <p>Powerful laptop with advanced graphics.</p>
+        <button><i class="cart-icon">🛒</i> Add to Cart</button>
+      </div>
+      <!-- Product 3 -->
+      <div class="product-card">
+        <img src="mobile1.jpg" alt="Mobile 1">
+        <h2>Mobile 1</h2>
+        <p>$500.00</p>
+        <p>Smartphone with excellent camera and battery life.</p>
+        <button><i class="cart-icon">🛒</i> Add to Cart</button>
+      </div>
+      <!-- Product 4 -->
+      <div class="product-card">
+        <img src="mobile2.jpg" alt="Mobile 2">
+        <h2>Mobile 2</h2>
+        <p>$700.00</p>
+        <p>Flagship phone with premium features.</p>
+        <button><i class="cart-icon">🛒</i> Add to Cart</button>
+      </div>
+      <!-- Product 5 -->
+      <div class="product-card">
+        <img src="laptop3.jpg" alt="Laptop 3">
+        <h2>Laptop 3</h2>
+        <p>$900.00</p>
+        <p>Compact and lightweight laptop for travel.</p>
+        <button><i class="cart-icon">🛒</i> Add to Cart</button>
+      </div>
+      <!-- Product 6 -->
+      <div class="product-card">
+        <img src="laptop4.jpg" alt="Laptop 4">
+        <h2>Laptop 4</h2>
+        <p>$1500.00</p>
+        <p>High-end laptop with cutting-edge performance.</p>
+        <button><i class="cart-icon">🛒</i> Add to Cart</button>
+      </div>
+      <!-- Product 7 -->
+      <div class="product-card">
+        <img src="mobile3.jpg" alt="Mobile 3">
+        <h2>Mobile 3</h2>
+        <p>$400.00</p>
+        <p>Affordable smartphone with all essential features.</p>
+        <button><i class="cart-icon">🛒</i> Add to Cart</button>
+      </div>
+      <!-- Product 8 -->
+      <div class="product-card">
+        <img src="mobile4.jpg" alt="Mobile 4">
+        <h2>Mobile 4</h2>
+        <p>$600.00</p>
+        <p>Stylish phone with powerful hardware.</p>
+        <button><i class="cart-icon">🛒</i> Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 E-commerce Chatbot. All rights reserved.</p>
+  </footer>
+</body>
+</html>

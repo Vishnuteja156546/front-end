@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | E-commerce Chatbot</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>/* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    
+    /* Header (Navigation Bar) */
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 0;
+      position: fixed; /* Keep the nav bar fixed */
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* Ensure it is above other elements */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+      justify-content: center; /* Center the navigation links */
+      padding: 0;
+      margin: 0;
+    }
+    
+    .nav-links li {
+      margin: 0 15px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: #ffd700; /* Highlight color on hover */
+    }
+    
+    /* Auth Buttons */
+    .auth-buttons {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+    }
+    
+    .auth-buttons a {
+      text-decoration: none;
+      margin-left: 10px;
+      padding: 8px 12px;
+      background-color: white;
+      color: #007bff;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .auth-buttons a:hover {
+      background-color: #ffd700;
+      color: #333;
+    }
+    
+    /* Marquee */
+    .marquee {
+      background-color: #0056b3;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <a href="login.html" class="login-btn">Login</a>
+        <a href="profile.html" class="profile-btn">Profile</a>
+      </div>
+    </nav>
+    <marquee class="marquee">
+      🎉 Exclusive New Year Offer: Flat 50% OFF on All Products! Shop Now! 🎉
+    </marquee>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Welcome to Our E-commerce Site</h1>
+      <p>Experience the best shopping with our interactive chatbot!</p>
+      <a href="products.html" class="btn">Shop Now</a>
+    </section>
+
+    <!-- Chatbot Section -->
+    <section class="chatbot">
+      <h2>Chat with Our Bot</h2>
+      <div class="chat-container">
+        <div id="chat-box" class="chat-box"></div>
+        <div class="chat-input">
+          <input type="text" id="user-input" placeholder="Ask me about products..." />
+          <button id="send-btn">Send</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 E-commerce Chatbot. All rights reserved.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
