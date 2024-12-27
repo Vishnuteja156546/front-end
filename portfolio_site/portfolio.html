@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Vishnu Teja</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #007BFF;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: #f4f4f9;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-section .highlight {
+            color: #007BFF;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #0056b3;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background: #fff;
+        }
+
+        .projects-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-card h3 {
+            margin: 10px 0;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #121212;
+            color: #f4f4f9;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            cursor: pointer;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+        }
+
+        /* Hidden section style */
+        #resume {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a onclick="showSection('home')">Home</a>
+            <a onclick="showSection('about')">About Me</a>
+            <a onclick="showSection('contact')">Contact Me</a>
+            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        </div>
+    </nav>
+
+    <!-- Sections -->
+    <section id="home" class="hero-section active">
+        <div class="container">
+            <h1>Hi, I'm <span class="highlight">Vishnu Teja</span></h1>
+            <p>Passionate Computer Science Student & Aspiring Data Scientist</p>
+            <a href="#" class="cta-button" onclick="toggleResume()">View My Resume</a>
+            <a href="#projects" class="cta-button">Explore My Projects</a>
+        </div>
+    </section>
+
+    <section id="resume">
+        <div class="container">
+            <h2>Resume</h2>
+            <p>📞 +91 8139991104 | 📍 Raichur | ✉️ <a href="mailto:bvishnuteja.2004@gmail.com">bvishnuteja.2004@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/vishnuteja-bikkina-212a82277" target="_blank">www.linkedin.com/in/vishnuteja-bikkina-212a82277</a></p>
+            <h3>Profile</h3>
+            <p>
+                Highly motivated and results-driven Data Science student with strong foundational knowledge in Python, Machine Learning, Deep Learning, and Data Visualization. Proven leadership in guiding teams through data-intensive projects, utilizing tools like Tableau, Seaborn, and Jupyter Notebooks to drive actionable insights. Seeking opportunities to apply technical skills and data analysis expertise in a professional environment.
+            </p>
+            <h3>Education</h3>
+            <ul>
+                <li><strong>Bachelor of Science in Data Science</strong> | Presidency University | 2021 - 2025 | CGPA: 6.65/10</li>
+                <li><strong>Intermediate (Maths, Physics, Chemistry)</strong> | Sri Chaitanya Junior College | 2019 - 2021 | 78%</li>
+            </ul>
+            <h3>Skills</h3>
+            <p>Python, JavaScript, HTML, CSS, Tableau, Seaborn, Machine Learning, Deep Learning, Data Visualization, Jupyter Notebooks, MySQL, Pandas, NumPy</p>
+            <h3>Certifications</h3>
+            <ul>
+                <li>Deep Learning Certification</li>
+                <li>Certified Python Programmer</li>
+                <li>Data Science Specialization</li>
+                <li>Machine Learning</li>
+            </ul>
+            <h3>Projects</h3>
+            <ul>
+                <li><strong>Stock Price Prediction Model</strong> | Python, Machine Learning<br>Built a predictive model improving accuracy by 10%.</li>
+                <li><strong>Sentiment Analysis on Twitter</strong> | Deep Learning<br>Achieved 85% accuracy in sentiment classification.</li>
+                <li><strong>Customer Segmentation</strong> | K-means Clustering<br>Enabled better-targeted marketing strategies using Tableau.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="project1.jpg" alt="Project 1" class="project-image">
+                    <h3>Front-End Sites</h3>
+                    <p>A description for project these projects only front-end based technologies only with HTML, CSS, JavaScript, Some stylings modules added extra according to project .</p>
+                    <a href="https://github.com/Vishnuteja156546/front-end" target="_blank">View on GitHub</a>
+                </div>
+                <div class="project-card">
+                    <img src="project2.jpg" alt="Project 2" class="project-image">
+                    <h3>Generative-AI</h3>
+                    <p>A brief description of the project, its goals, and technologies used.</p>
+                    <a href="https://github.com/Vishnuteja156546/Gen_Ai" target="_blank">View on GitHub</a>
+                </div>
+                <div class="project-card">
+                    <img src="project3.jpg" alt="Project 3" class="project-image">
+                    <h3>Data_Science</h3>
+                    <p>learning data science and innovative project focusing on advanced data analysis and visualization techniques with data classification, regression and some various types which add content in data_science.</p>
+                    <a href="https://github.com/Vishnuteja156546/Data_Science" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Hello! I'm Vishnu Teja, a passionate Computer Science student with a strong interest in Data Science, Machine Learning, and Artificial Intelligence. I enjoy solving real-world problems and building smart systems.</p>
+            <p>Skills: Python, JavaScript, Machine Learning, Frontend Development</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Email: bvishnuteja6@gmail.com</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/vishnuteja/" target="_blank">linkedin.com/in/vishnuteja</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Vishnu Teja. All Rights Reserved.</p>
+    </footer>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Scroll to Top Button
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                document.querySelector('.scroll-to-top').style.display = "block";
+            } else {
+                document.querySelector('.scroll-to-top').style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        // Toggle Resume Section Visibility
+        function toggleResume() {
+            const resumeSection = document.getElementById('resume');
+            if (resumeSection.style.display === 'none' || !resumeSection.style.display) {
+                resumeSection.style.display = 'block';
+            } else {
+                resumeSection.style.display = 'none';
+            }
+        }
+
+        // Double-click action to hide resume
+        document.getElementById('resume').addEventListener('dblclick', function() {
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
