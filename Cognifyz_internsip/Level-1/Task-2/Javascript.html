@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            display: block;
+        }
+        
+        nav ul li a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        #colorButton {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #greetButton {
+            background-color: #007bff;
+            color: white;
+        }
+
+        #calculateButton {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .calculator {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #result {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="Javascript.html">Calculator</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+    <div class="container">
+        <h1>Task 2</h1>
+        <p>The button for color changing</p>
+        <button id="colorButton">Click me</button>
+
+        <p>The button for alert with current time</p>
+        <button id="greetButton">Alert me</button>
+
+        <div class="calculator">
+            <h2>Calculator</h2>
+            <form id="calcForm">
+                <label for="first_number">First number</label>
+                <input type="number" id="first_number">
+                <label for="second_number">Second number</label>
+                <input type="number" id="second_number">
+                <button type="submit" id="calculateButton">Calculate</button>
+            </form>
+            <div id="result">Result: </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const colorButton = document.getElementById("colorButton");
+            const greetButton = document.getElementById("greetButton");
+            const calcForm = document.getElementById("calcForm");
+            const result = document.getElementById("result");
+
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * max);
+            }
+
+            colorButton.addEventListener('click', () => {
+                let colors = `rgb(${getRandomInt(256)}, ${getRandomInt(256)}, ${getRandomInt(256)})`;
+                colorButton.style.backgroundColor = colors;
+            });
+
+            greetButton.addEventListener('click', () => {
+                alert(`Congrats!\nYou are live at ${new Date().toLocaleString()}`);
+            });
+
+            calcForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                let num1 = Number(document.getElementById("first_number").value);
+                let num2 = Number(document.getElementById("second_number").value);
+                let sum = num1 + num2;
+                result.textContent = `Result: ${sum}`;
+            });
+        });
+    </script>
+</body>
+</html>

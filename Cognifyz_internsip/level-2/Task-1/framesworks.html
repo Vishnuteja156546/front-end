@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Cards with Bulma</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card img {
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title has-text-centered">Responsive Card Grid</h1>
+        
+        <!-- Card Grid -->
+        <div class="columns is-multiline is-variable is-8">
+            
+            <!-- Card 1 -->
+            <div class="column is-one-quarter">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="nature.jpg" alt="Nature">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="title is-5">Nature</h2>
+                        <p>Discover the beauty of nature with stunning landscapes.</p>
+                        <button class="button is-success is-fullwidth read-more" data-content="Explore beautiful landscapes, waterfalls, and green forests around the world.">Read More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="column is-one-quarter">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="Adventure.jpg" alt="Adventure">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="title is-5">Adventure</h2>
+                        <p>Experience the thrill of adventure with extreme sports.</p>
+                        <button class="button is-success is-fullwidth read-more" data-content="Try activities like skydiving, scuba diving, and mountain trekking.">Read More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="column is-one-quarter">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="Technology.jpg" alt="Technology">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="title is-5">Technology</h2>
+                        <p>Immerse yourself in the latest tech and innovations.</p>
+                        <button class="button is-success is-fullwidth read-more" data-content="Learn about AI, robotics, and the latest tech innovations.">Read More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="column is-one-quarter">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="Space.jpg" alt="Space">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="title is-5">Space</h2>
+                        <p>Discover the mysteries of the universe and space exploration.</p>
+                        <button class="button is-success is-fullwidth read-more" data-content="Explore black holes, exoplanets, and the latest space missions.">Read More</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="infoModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">More Information</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <p id="modal-content">Content goes here...</p>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" id="closeModal">Close</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JavaScript for Modal -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const modal = document.getElementById("infoModal");
+            const modalContent = document.getElementById("modal-content");
+            const closeModal = document.getElementById("closeModal");
+            const closeIcon = document.querySelector(".modal .delete");
+
+            // Open modal when clicking "Read More"
+            document.querySelectorAll(".read-more").forEach(button => {
+                button.addEventListener("click", function () {
+                    modalContent.textContent = this.getAttribute("data-content");
+                    modal.classList.add("is-active");
+                });
+            });
+
+            // Close modal on button click
+            closeModal.addEventListener("click", () => {
+                modal.classList.remove("is-active");
+            });
+
+            // Close modal when clicking the "X" icon
+            closeIcon.addEventListener("click", () => {
+                modal.classList.remove("is-active");
+            });
+
+            // Close modal when clicking outside
+            document.querySelector(".modal-background").addEventListener("click", () => {
+                modal.classList.remove("is-active");
+            });
+        });
+    </script>
+
+</body>
+</html>
