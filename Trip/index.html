@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Coorg + Mysore Trip Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ================= TOP APP BAR ================= -->
+<header class="appbar">
+  <div>
+    <div class="appbar__title">Trip Dashboard</div>
+    <div class="appbar__subtitle">Coorg + Mysore · 2½ Days</div>
+  </div>
+  <button class="icon-btn" id="btnReset" title="Reset Trip">↻</button>
+</header>
+
+<!-- ================= SETUP MODAL ================= -->
+<div class="modal" id="setupModal">
+  <div class="modal__sheet">
+    <h2>Trip Setup</h2>
+    <p class="muted">Members, budget & bike planning</p>
+
+    <label class="field">
+      Members
+      <select id="membersInput">
+        <option value="1">1 person</option>
+        <option value="2">2 persons</option>
+        <option value="3">3 persons</option>
+        <option value="4" selected>4 persons</option>
+      </select>
+    </label>
+
+    <div class="grid2">
+      <label class="field">
+        Trip Distance (km)
+        <input type="number" id="distanceInput" value="520" />
+      </label>
+      <label class="field">
+        Mileage (km/l)
+        <input type="number" id="mileageInput" value="40" />
+      </label>
+    </div>
+
+    <div class="grid2">
+      <label class="field">
+        Fuel Price (₹/L)
+        <input type="number" id="fuelPriceInput" value="105" />
+      </label>
+      <label class="field">
+        Bikes (auto)
+        <input type="number" id="bikesInput" value="2" />
+      </label>
+    </div>
+
+    <div class="grid2">
+      <label class="field">
+        Stay / room / night (₹)
+        <input type="number" id="stayPerRoomNightInput" value="900" />
+      </label>
+      <label class="field">
+        Food / person / day (₹)
+        <input type="number" id="foodPerPersonDayInput" value="300" />
+      </label>
+    </div>
+
+    <div class="grid2">
+      <label class="field">
+        Entry + parking / person (₹)
+        <input type="number" id="entryPerPersonInput" value="400" />
+      </label>
+      <label class="field">
+        Nights
+        <input type="number" id="nightsInput" value="2" />
+      </label>
+    </div>
+
+    <button class="btn full" id="btnSaveSetup">Save & Start Trip</button>
+    <button class="btn btn--ghost full" id="btnCloseSetup">Cancel</button>
+  </div>
+</div>
+
+<!-- ================= MAIN ================= -->
+<main class="main">
+
+<!-- ===== PLAN ===== -->
+<section class="screen screen--active" id="screenPlan">
+  <div class="card">
+    <h2>Auto Budget</h2>
+    <div class="kv">
+      <div class="kv__row"><span>Members</span><b id="kMembers">4</b></div>
+      <div class="kv__row"><span>Bikes</span><b id="kBikes">2</b></div>
+      <div class="kv__row"><span>Rooms</span><b id="kRooms">2</b></div>
+      <div class="kv__row"><span>Fuel</span><b>₹<span id="kFuelTotal">0</span></b></div>
+      <div class="kv__row"><span>Stay</span><b>₹<span id="kStayTotal">0</span></b></div>
+      <div class="kv__row"><span>Food</span><b>₹<span id="kFoodTotal">0</span></b></div>
+      <div class="kv__row"><span>Entry</span><b>₹<span id="kEntryTotal">0</span></b></div>
+      <div class="kv__row kv__row--total"><span>Total</span><b>₹<span id="kGroupTotal">0</span></b></div>
+      <div class="kv__row kv__row--total"><span>Per Person</span><b>₹<span id="kPerPerson">0</span></b></div>
+    </div>
+    <button class="btn btn--ghost full" id="btnOpenSetup">Edit Setup</button>
+  </div>
+</section>
+
+<!-- ===== CHECKLIST ===== -->
+<section class="screen" id="screenChecklist">
+
+  <div class="card">
+    <h2>Overall Progress</h2>
+    <div class="progress">
+      <div class="progress__bar" id="overallBar"></div>
+    </div>
+    <div class="kv kv--compact">
+      <div class="kv__row"><span>Completed</span><b><span id="doneCount">0</span>/<span id="totalCount">0</span></b></div>
+      <div class="kv__row"><span>Distance Covered</span><b><span id="distCovered">0</span> km</b></div>
+      <div class="kv__row"><span>Remaining</span><b><span id="distRemain">520</span> km</b></div>
+    </div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="card">
+    <h2>Day 1 – Coorg</h2>
+    <div class="day-progress">
+      <div class="progress progress--small"><div class="progress__bar" id="day1Bar"></div></div>
+      <div class="muted small" id="day1Pct">0%</div>
+    </div>
+
+    <div class="checklist">
+      <label class="check"><input type="checkbox" data-id="d1_start"><span>Start from Bangalore</span></label>
+      <label class="check"><input type="checkbox" data-id="d1_breakfast"><span>Breakfast – Kushalnagar</span></label>
+      <label class="check"><input type="checkbox" data-id="d1_harangi"><span>Harangi Backwaters</span></label>
+      <label class="check"><input type="checkbox" data-id="d1_temple"><span>Golden Temple</span></label>
+      <label class="check"><input type="checkbox" data-id="d1_madikeri"><span>Madikeri Viewpoint</span></label>
+      <label class="check"><input type="checkbox" data-id="d1_stay"><span>Night stay – Coorg</span></label>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="card">
+    <h2>Day 2 – Mysore</h2>
+    <div class="day-progress">
+      <div class="progress progress--small"><div class="progress__bar" id="day2Bar"></div></div>
+      <div class="muted small" id="day2Pct">0%</div>
+    </div>
+
+    <div class="checklist">
+      <label class="check"><input type="checkbox" data-id="d2_leave"><span>Leave early</span></label>
+      <label class="check"><input type="checkbox" data-id="d2_mandalpatti"><span>Mandalpatti Sunrise</span></label>
+      <label class="check"><input type="checkbox" data-id="d2_checkout"><span>Breakfast & checkout</span></label>
+      <label class="check"><input type="checkbox" data-id="d2_mysore_reach"><span>Reach Mysore</span></label>
+      <label class="check"><input type="checkbox" data-id="d2_palace"><span>Mysore Palace</span></label>
+      <label class="check"><input type="checkbox" data-id="d2_lake"><span>Kukkarahalli Lake</span></label>
+      <label class="check"><input type="checkbox" data-id="d2_stay"><span>Night stay – Mysore</span></label>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="card">
+    <h2>Day 3 – Return</h2>
+    <div class="day-progress">
+      <div class="progress progress--small"><div class="progress__bar" id="day3Bar"></div></div>
+      <div class="muted small" id="day3Pct">0%</div>
+    </div>
+
+    <div class="checklist">
+      <label class="check"><input type="checkbox" data-id="d3_chamundi"><span>Chamundi Hills</span></label>
+      <label class="check"><input type="checkbox" data-id="d3_return_start"><span>Start return</span></label>
+      <label class="check"><input type="checkbox" data-id="d3_reach_blr"><span>Reach Bangalore</span></label>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== EXPENSES ===== -->
+<section class="screen" id="screenExpenses">
+
+  <div class="card">
+    <h2>Live Spend</h2>
+    <div class="kv kv--compact">
+      <div class="kv__row"><span>Total Spent</span><b>₹<span id="spentTotal">0</span></b></div>
+      <div class="kv__row"><span>Per Person</span><b>₹<span id="spentPerPerson">0</span></b></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Add Expense</h2>
+    <div class="grid2">
+      <select id="expCategory">
+        <option>Fuel</option>
+        <option>Food</option>
+        <option>Stay</option>
+        <option>Entry</option>
+        <option>Other</option>
+      </select>
+      <input type="number" id="expAmount" placeholder="Amount ₹">
+    </div>
+    <select id="expPaidBy"></select>
+    <button class="btn full" id="btnAddExpense">Add Expense</button>
+  </div>
+
+  <div class="card">
+    <h2>Expense List</h2>
+    <div id="expenseList"></div>
+    <button class="btn btn--ghost full" id="btnClearExpenses">Clear Expenses</button>
+  </div>
+
+  <div class="card">
+    <h2>Settlement</h2>
+    <div id="settlementBox"></div>
+  </div>
+
+</section>
+
+<!-- ===== SETTINGS ===== -->
+<section class="screen" id="screenSettings">
+  <div class="card">
+    <button class="btn full" id="btnOpenSetup2">Edit Setup</button>
+  </div>
+  <div class="card">
+    <textarea id="tripNotes" class="notes" placeholder="Notes..."></textarea>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= BOTTOM NAV ================= -->
+<nav class="bottom-nav">
+  <button class="tab tab--active" data-target="screenPlan">Plan</button>
+  <button class="tab" data-target="screenChecklist">Checklist</button>
+  <button class="tab" data-target="screenExpenses">Expenses</button>
+  <button class="tab" data-target="screenSettings">Settings</button>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>
